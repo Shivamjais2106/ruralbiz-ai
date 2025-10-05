@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RB RuralBiz AI - Contact & More</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="./Asset/icon-img3.jpg" />
+
+  <style>
+       /* Import Font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f7f9fb;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header / Navbar */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #7C3AED;
+        }
+
+        .logo span {
+            color: #10B981;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: #555;
+            padding-bottom: 2px;
+        }
+
+        nav a.active {
+            color: #10B981;
+            border-bottom: 2px solid #10B981;
+        }
+
+        nav a:hover {
+            color: #10B981;
+        }
+
+        .auth-buttons button {
+            margin-left: 10px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn {
+            background: none;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .login-btn:hover {
+            color: #7C3AED;
+        }
+
+        .signup-btn {
+            background: #10B981;
+            color: #fff;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .signup-btn:hover {
+            background: #0e9e6f;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            padding: 10px 0;
+            background: #fff;
+            border-top: 1px solid #eee;
+        }
+
+        .mobile-menu a {
+            padding: 10px 20px;
+            color: #555;
+        }
+
+        .mobile-menu a.active {
+            color: #10B981;
+            font-weight: 600;
+        }
+        
+
+
+    /* Main Sections */
+    main {
+      flex-grow: 1;
+      padding: 80px 20px 40px;
+      animation: fade-in-up 0.5s ease-out;
+    }
+
+    section {
+      padding: 80px 20px;
+    }
+
+    /* Animations */
+    @keyframes fade-in-up {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes shake {
+
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      20%,
+      60% {
+        transform: translateX(-5px);
+      }
+
+      40%,
+      80% {
+        transform: translateX(5px);
+      }
+    }
+
+    /* Contact Card */
+    .contact-card {
+      background: #fff;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: 0.3s;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .contact-card:hover {
+      box-shadow: 0 40px 60px -15px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      gap: 40px;
+    }
+
+    .grid-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Left Column */
+    .contact-info {
+      background: #10b981;
+      color: #e2e8f0;
+      padding: 40px;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-info h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .contact-info p {
+      margin-bottom: 20px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .info-item svg {
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+
+    .info-item div p:first-child {
+      font-weight: 600;
+    }
+
+    .contact-info .footer-text {
+      margin-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      padding-top: 20px;
+      font-weight: 700;
+    }
+
+    /* Right Column */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.5);
+      outline: none;
+    }
+
+    .submit-btn {
+      background: #10b981;
+      color: #fff;
+      padding: 14px;
+      font-size: 18px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      border: none;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px rgba(16, 185, 129, 0.5);
+    }
+
+    .alert {
+      padding: 12px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .alert-success {
+      background: #d1fae5;
+      color: #065f46;
+      border-left: 4px solid #10b981;
+      animation: fade-in-up 0.5s ease-out;
+    }
+
+    .alert-error {
+      background: #fee2e2;
+      color: #b91c1c;
+      border-left: 4px solid #b91c1c;
+      animation: shake 0.5s ease-in-out;
+    }
+
+    /* Microplans Cards */
+    .card {
+      background: #fff;
+      padding: 32px;
+      border-radius: 24px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      margin-bottom: 16px;
+    }
+
+    /* Graph bars */
+    .graph {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      max-width: 800px;
+      margin: 0 auto;
+      gap: 20px;
+    }
+
+    .bar {
+      flex: 1;
+      border-radius: 16px 16px 0 0;
+      transition: 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .bar:hover {
+      transform: scale(1.05);
+    }
+
+    /* Testimonials */
+    .testimonial {
+      background: #fff;
+      padding: 32px;
+      border-radius: 24px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .testimonial img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      margin-bottom: 16px;
+    }
+
+        /* ✅ Footer */
+      footer {
+        background: #000000;
+        color: white;
+        padding: 4rem 5% 2rem;
+      }
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+        gap: 2rem;
+        height: 30vh;
+        max-width: 1200px; /* ✅ same as navbar */
+        margin: 0 auto; /* ✅ center align */
+        padding: 0 20px; /* ✅ same padding as navbar */
+      }
+
+      .footer-column h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+
+      .footer-column h3::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 2px;
+        background: var(--accent);
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-column ul li a {
+        text-decoration: none;
+        color: #fff;
+        transition: color 0.3s;
+        font-size: 0.9rem;
+        opacity: 0.6;
+      }
+
+      .footer-column ul li a:hover {
+        color: var(--accent);
+        opacity: 1;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        transition: all 0.3s;
+      }
+
+      .social-links a:hover {
+        background: var(--accent);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #aaa;
+        font-size: 0.9rem;
+      }
+      
+    /* Responsive */
+    @media(max-width:1024px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media(max-width:768px) {
+      .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="container">
+      <div class="logo">RB <span>RuralBiz AI</span></div>
+      <nav class="desktop-nav">
+        <a href="home.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="microplans.html">Microplans</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+       <div class="auth-buttons">
+        <button class="login-btn" class="login-btn" onclick="window.location.href='login.html'">Login</button>
+        <button class="signup-btn" class="signup-btn" onclick="window.location.href='sign-up.html'">Sign Up</button>
+      </div>
+      <button class="mobile-menu-btn" id="mobile-menu-button">☰</button>
+    </div>
+      <button class="mobile-menu-btn" id="mobile-menu-button">☰</button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#">Home</a>
+      <a href="#">Features</a>
+      <a href="#">Roadmap</a>
+      <a href="#">Microplans</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <button class="login-btn">Login</button>
+      <button class="signup-btn">Sign Up</button>
+    </div>
+  </header>
+
+
+  <!-- Contact Section -->
+  <main>
+    <div style="max-width:1200px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:40px;">
+        <h2 style="font-size:40px;font-weight:800;">Let's Build the Future Together</h2>
+        <p style="margin-top:10px;font-size:18px;color:#555;">Get in touch with our team of AI and rural development
+          experts.</p>
+      </div>
+
+      <div class="contact-card">
+        <div class="grid grid-2">
+
+          <!-- Left Column -->
+          <div class="contact-info">
+            <div>
+              <h3>Contact Information</h3>
+              <p>We're here to help rural entrepreneurs thrive. Reach out with your business idea or partnership
+                proposal.</p>
+              <div class="info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <div>
+                  <p>Our Office</p>
+                  <p>Rural Innovation Hub, Tech City Road, New Delhi, India</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+                <div>
+                  <p>Email Us</p>
+                  <p>support@ruralbizai.com</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6.7-6.7A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4.18 2h3c.47 0 .94.18 1.25.52l4.47 4.47a2 2 0 0 1 0 2.83L10.3 12.3c-.45.45-.66 1.05-.48 1.62a14.7 14.7 0 0 0 4.1 4.1c.57.18 1.17-.03 1.62-.48l2.88-2.88a2 2 0 0 1 2.83 0l4.47 4.47c.34.31.52.78.52 1.25v3" />
+                </svg>
+                <div>
+                  <p>Call Us</p>
+                  <p>+91 98765 43210 (Mon - Fri, 9am - 5pm)</p>
+                </div>
+              </div>
+            </div>
+            <div class="footer-text">Powered by AI, Rooted in Rural.</div>
+          </div>
+
+          <!-- Right Column -->
+          <div>
+            <h3 style="font-size:28px;font-weight:700;margin-bottom:20px;">Send us a Message</h3>
+            <div id="successMessage" class="alert alert-success" style="display:none;">
+              <p><strong>Message Sent!</strong> Thank you for reaching out. We will get back to you shortly.</p>
+            </div>
+            <div id="errorMessage" class="alert alert-error" style="display:none;">
+              <p><strong>Error!</strong> Please fill in all required fields correctly (especially a valid email).</p>
+            </div>
+            <form id="contactForm" onsubmit="handleFormSubmission(event)">
+              <input type="text" id="fullName" placeholder="Full Name*" required>
+              <input type="email" id="email" placeholder="Email Address*" required>
+              <input type="text" id="subject" placeholder="Subject">
+              <textarea id="message" rows="5" placeholder="How can we help?*" required></textarea>
+              <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Microplans Section -->
+  <section id="microplans" style="background:#f3f4f6;">
+    <div style="max-width:1200px;margin:0 auto;text-align:center;">
+      <h2 style="font-size:36px;font-weight:800;margin-bottom:20px;">Our Microplans for Entrepreneurs</h2>
+      <p style="color:#555;margin-bottom:40px;">Step-by-step guidance to help you start and grow a business in rural
+        areas.</p>
+      <div class="grid grid-3">
+        <div class="card">
+          <img src="./Asset/contact-img1.png" alt="Idea">
+          <h3 style="font-size:20px;font-weight:700;margin-bottom:10px;">Business Idea Planner</h3>
+          <p>Generate viable business ideas suited for your local area and skills.</p>
+        </div>
+        <div class="card">
+          <img src="./Asset/contact-img2.png" alt="Roadmap">
+          <h3 style="font-size:20px;font-weight:700;margin-bottom:10px;">Step-by-Step Roadmap</h3>
+          <p>Follow a clear roadmap from ideation to execution with actionable steps.</p>
+        </div>
+        <div class="card">
+          <img src="https://img.icons8.com/dusk/64/graph-report.png" alt="Growth">
+          <h3 style="font-size:20px;font-weight:700;margin-bottom:10px;">Growth Analytics</h3>
+          <p>Monitor progress, optimize decisions, and track performance using AI insights.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-content container">
+        <div class="footer-column">
+          <h3>RuralBiz AI</h3>
+          <p>“Empowering Rural Entrepreneurs with AI-powered Business Growth”</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+            <li><a href="microplans.html">Microplans</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Business Guides</a></li>
+            <li><a href="#">Success Stories</a></li>
+            <li><a href="#">Training & Mentorship Programs</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i>Bhopal, Madhya Pradesh, India</li>
+            <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+            <li><i class="fas fa-envelope"></i> support@ruralbizai.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+           <p>&copy; 2025 RuralBiz AI | Empowering Rural Entrepreneurs</p>
+      </div>
+    </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      if (mobileMenu.style.display === 'flex') {
+        mobileMenu.style.display = 'none';
+      } else {
+        mobileMenu.style.display = 'flex';
+      }
+    });
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    function handleFormSubmission(event) {
+      event.preventDefault();
+      const fullName = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const successMsg = document.getElementById('successMessage');
+      const errorMsg = document.getElementById('errorMessage');
+
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
+      errorMsg.style.animation = '';
+
+      if (fullName === '' || email === '' || message === '' || !emailRegex.test(email)) {
+        errorMsg.style.display = 'block';
+        errorMsg.style.animation = 'shake 0.5s ease-in-out';
+        return;
+      }
+
+      console.log({ fullName, email, subject, message });
+      successMsg.style.display = 'block';
+      setTimeout(() => { document.getElementById('contactForm').reset(); successMsg.style.display = 'none'; }, 5000);
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RuralBiz AI - Empowering Rural Entrepreneurs</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" href="./Asset/icon-img3.jpg" />
+
+    <style>
+      /* Import Font */
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+
+      /* Basic Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: #f7f9fb;
+        color: #333;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      /* Header / Navbar */
+      header {
+        background: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: 800;
+        color: #7c3aed;
+      }
+
+      .logo span {
+        color: #10b981;
+      }
+
+      nav {
+        display: flex;
+        gap: 20px;
+      }
+
+      nav a {
+        font-weight: 500;
+        color: #555;
+        padding-bottom: 2px;
+      }
+
+      nav a.active {
+        color: #10b981;
+        border-bottom: 2px solid #10b981;
+      }
+
+      nav a:hover {
+        color: #10b981;
+      }
+
+      .auth-buttons button {
+        margin-left: 10px;
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .login-btn {
+        background: none;
+        color: #555;
+        font-weight: 600;
+      }
+
+      .login-btn:hover {
+        color: #7c3aed;
+      }
+
+      .signup-btn {
+        background: #10b981;
+        color: #fff;
+        font-weight: 700;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+      }
+
+      .signup-btn:hover {
+        background: #0e9e6f;
+      }
+
+      /* Mobile Menu */
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 26px;
+      }
+
+      .mobile-menu {
+        display: none;
+        flex-direction: column;
+        padding: 10px 0;
+        background: #fff;
+        border-top: 1px solid #eee;
+      }
+
+      .mobile-menu a {
+        padding: 10px 20px;
+        color: #555;
+      }
+
+      .mobile-menu a.active {
+        color: #10b981;
+        font-weight: 600;
+      }
+
+      /* Responsive Navbar */
+      @media (max-width: 768px) {
+        nav {
+          display: none;
+        }
+
+        .auth-buttons {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+      }
+
+      /* ===== HERO SECTION ===== */
+      .hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 80px 10%;
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("./Asset/about-img1.jpg")
+            no-repeat center/cover;
+        color: #fff;
+        gap: 40px;
+        flex-wrap: wrap;
+        height: 91vh;
+      }
+
+      .hero-text {
+        flex: 1 1 500px;
+        animation: fadeInLeft 1.2s ease;
+      }
+
+      .hero-text h1 {
+        font-size: 42px;
+        margin-bottom: 20px;
+      }
+
+      .hero-text p {
+        font-size: 18px;
+        margin-bottom: 25px;
+      }
+
+      .hero-text .btn-main {
+        background: #0078ff;
+        padding: 14px 30px;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .hero-text .btn-main:hover {
+        background: #0056b3;
+        transform: translateY(-2px);
+      }
+
+      .hero-image {
+        flex: 1 1 400px;
+        text-align: center;
+        animation: fadeInRight 1.2s ease;
+      }
+
+      .hero-image img {
+        height: 60vh;
+        width: 100%;
+        max-width: 420px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        transition: 0.3s;
+      }
+
+      .hero-image img:hover {
+        transform: scale(1.05);
+      }
+
+      /* ===== ABOUT SECTION ===== */
+      .about-section {
+        padding: 80px 10%;
+        background: linear-gradient(to right, #f1f9ff, #fff);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+      }
+
+      .about-text {
+        flex: 1 1 500px;
+        animation: fadeInLeft 1.2s ease;
+      }
+
+      .about-text h2 {
+        font-size: 36px;
+        color: #1a237e;
+        margin-bottom: 20px;
+      }
+
+      .about-text p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .about-text .highlight {
+        color: #0078ff;
+        font-weight: bold;
+      }
+
+      .about-btn {
+        padding: 12px 25px;
+        font-size: 16px;
+        color: #fff;
+        background: #0078ff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .about-btn:hover {
+        background: #0056b3;
+        transform: translateY(-2px);
+      }
+
+      .about-image {
+        flex: 1 1 400px;
+        text-align: center;
+        animation: fadeInRight 1.2s ease;
+        position: relative;
+      }
+
+      .about-image img {
+        width: 100%;
+        max-width: 420px;
+        border-radius: 20px;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+      }
+
+      .about-image img:hover {
+        transform: scale(1.05);
+      }
+
+      .img-caption {
+        position: absolute;
+        bottom: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 120, 255, 0.9);
+        color: #fff;
+        padding: 8px 15px;
+        border-radius: 12px;
+        font-size: 14px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      /* ===== STATS SECTION ===== */
+      .stats {
+        display: flex;
+        justify-content: space-around;
+        padding: 60px 10%;
+        background: #fff;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .stat-box {
+        flex: 1 1 200px;
+        background: #f0f7ff;
+        padding: 30px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+        transition: 0.3s;
+      }
+
+      .stat-box:hover {
+        transform: translateY(-5px);
+        background: #e7f3ff;
+      }
+
+      .stat-box h3 {
+        font-size: 32px;
+        color: #0078ff;
+        margin-bottom: 10px;
+      }
+
+      /* ===== HOW IT WORKS ===== */
+      .how-it-works {
+        padding: 80px 10%;
+        background: #f9fcff;
+        text-align: center;
+      }
+
+      .how-it-works h2 {
+        font-size: 34px;
+        color: #1a237e;
+        margin-bottom: 40px;
+      }
+
+      .steps {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+      }
+
+      .step {
+        flex: 1 1 250px;
+        background: #fff;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+        transition: 0.3s;
+      }
+
+      .step:hover {
+        transform: translateY(-8px);
+      }
+
+      .step img {
+        width: 70px;
+        margin-bottom: 15px;
+      }
+
+      /* ===== GALLERY ===== */
+      .gallery {
+        background: linear-gradient(to right, #ffffff, #f0faff);
+        padding: 80px 10%;
+        text-align: center;
+      }
+
+      .gallery h2 {
+        font-size: 34px;
+        color: #1a237e;
+        margin-bottom: 40px;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        transition: transform 0.5s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .gallery-caption {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: rgb(48, 48, 55);
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        font-size: 16px;
+        z-index: 1000;
+      }
+
+      /* ===== CTA SECTION ===== */
+      .cta {
+        padding: 80px 10%;
+        background: linear-gradient(90deg, #0078ff, #00c6ff);
+        color: #fff;
+        text-align: center;
+      }
+
+      .cta h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      .cta button {
+        padding: 14px 30px;
+        font-size: 16px;
+        color: #0078ff;
+        background: #fff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .cta button:hover {
+        background: #e3f2fd;
+        transform: translateY(-3px);
+      }
+
+      /* ===== ANIMATIONS ===== */
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s ease;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* ✅ Footer */
+      footer {
+        background: #000000;
+        color: white;
+        padding: 4rem 5% 2rem;
+      }
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+        gap: 2rem;
+        height: 30vh;
+        max-width: 1200px; /* ✅ same as navbar */
+        margin: 0 auto; /* ✅ center align */
+        padding: 0 20px; /* ✅ same padding as navbar */
+      }
+
+      .footer-column h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+
+      .footer-column h3::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 2px;
+        background: var(--accent);
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-column ul li a {
+        text-decoration: none;
+        color: #fff;
+        transition: color 0.3s;
+        font-size: 0.9rem;
+        opacity: 0.6;
+      }
+
+      .footer-column ul li a:hover {
+        color: var(--accent);
+        opacity: 1;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        transition: all 0.3s;
+      }
+
+      .social-links a:hover {
+        background: var(--accent);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #aaa;
+        font-size: 0.9rem;
+      }
+
+
+      /* ✅ Responsive */
+      @media (max-width: 768px) {
+        .cards-container {
+          flex-direction: column;
+          align-items: center;
+        }
+        .card {
+          max-width: 90%;
+        }
+        .map-about {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <header>
+      <div class="container">
+        <div class="logo">RB <span>RuralBiz AI</span></div>
+        <nav class="desktop-nav">
+          <a href="home.html">Home</a>
+          <a href="features.html">Features</a>
+          <a href="roadmap.html">Roadmap</a>
+          <a href="microplans.html">Microplans</a>
+          <a href="about.html" class="active">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="auth-buttons">
+          <button class="login-btn" onclick="window.location.href='login.html'">
+            Login
+          </button>
+          <button
+            class="signup-btn"
+            onclick="window.location.href='sign-up.html'"
+          >
+            Sign Up
+          </button>
+        </div>
+        <button class="mobile-menu-btn" id="mobile-menu-button">☰</button>
+      </div>
+
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="home.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="microplans.html">Microplans</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+        <a href="sign-up.html">Sign Up</a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <h1>
+          Launch & Grow Your Business with
+          <span style="color: #4db8ff">AI-Powered Guidance</span>
+        </h1>
+        <p>
+          RuralBiz AI empowers rural entrepreneurs with AI-driven insights,
+          market analysis, and personalized growth strategies to help them
+          succeed.
+        </p>
+        <button class="btn-main">Start Your Free Guided Journey</button>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section reveal" id="about">
+      <div class="about-text">
+        <h2>About <span class="highlight">RuralBiz AI</span></h2>
+        <p>
+          <span class="highlight">RuralBiz AI</span> is an innovative platform
+          designed to empower <strong>rural entrepreneurs</strong> by guiding
+          them in <strong>starting and growing successful businesses</strong>.
+        </p>
+        <p>
+          Our platform provides
+          <b>market analysis, funding guidance, training, and mentorship</b>
+          tailored for rural needs — making business growth simple, accessible,
+          and impactful.
+        </p>
+        <button class="about-btn">Learn More</button>
+      </div>
+      <div class="about-image">
+        <img
+          src="./Asset/about-img2.jpg"
+          alt="AI RuralBiz"
+        />
+        <div class="img-caption">AI Empowering Rural Innovation</div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats reveal" id="stats">
+      <div class="stat-box">
+        <h3 id="count1">0</h3>
+        <p>Entrepreneurs Guided</p>
+      </div>
+      <div class="stat-box">
+        <h3 id="count2">0</h3>
+        <p>Business Plans Created</p>
+      </div>
+      <div class="stat-box">
+        <h3 id="count3">0</h3>
+        <p>Villages Impacted</p>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works reveal" id="how">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <img src="./Asset/about-img3.png" />
+          <h3>Identify Local Needs</h3>
+          <p>
+            AI analyzes your village's data to suggest potential business
+            opportunities.
+          </p>
+        </div>
+        <div class="step">
+          <img src="./Asset/about-img4.png" />
+          <h3>Create Business Plan</h3>
+          <p>
+            Our tool helps you make a complete, investor-ready business plan in
+            minutes.
+          </p>
+        </div>
+        <div class="step">
+          <img src="./Asset/about-img5.png" />
+          <h3>Launch & Scale</h3>
+          <p>
+            Access funding, mentorship, and training to grow your enterprise
+            sustainably.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery reveal" id="gallery">
+      <h2>Our Impact in Action</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img
+            src="./Asset/about-img6.avif"
+          />
+          <div class="gallery-caption">Farmers using AI insights</div>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="./Asset/about-img7.avif"
+          />
+          <div class="gallery-caption">Women Entrepreneurs Empowered</div>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="./Asset/about-img8.avif"
+          />
+          <div class="gallery-caption">Business Growth Collaboration</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta reveal">
+      <h2>Ready to Empower Your Rural Business?</h2>
+      <button onclick="window.location.href='sign-up.html'">
+        Get Started Today
+      </button>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-content container">
+        <div class="footer-column">
+          <h3>RuralBiz AI</h3>
+          <p>“Empowering Rural Entrepreneurs with AI-powered Business Growth”</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+            <li><a href="microplans.html">Microplans</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Business Guides</a></li>
+            <li><a href="#">Success Stories</a></li>
+            <li><a href="#">Training & Mentorship Programs</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i>Bhopal, Madhya Pradesh, India</li>
+            <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+            <li><i class="fas fa-envelope"></i> support@ruralbizai.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+           <p>&copy; 2025 RuralBiz AI | Empowering Rural Entrepreneurs</p>
+      </div>
+    </footer>
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.style.display =
+          mobileMenu.style.display === "flex" ? "none" : "flex";
+      });
+
+      // Reveal on Scroll Animation
+      window.addEventListener("scroll", reveal);
+      function reveal() {
+        const reveals = document.querySelectorAll(".reveal");
+        for (let i = 0; i < reveals.length; i++) {
+          const windowHeight = window.innerHeight;
+          const revealTop = reveals[i].getBoundingClientRect().top;
+          const revealPoint = 150;
+          if (revealTop < windowHeight - revealPoint) {
+            reveals[i].classList.add("active");
+          } else {
+            reveals[i].classList.remove("active");
+          }
+        }
+      }
+
+      // Counter Animation
+      const counters = [
+        { id: "count1", end: 500 },
+        { id: "count2", end: 1200 },
+        { id: "count3", end: 350 },
+      ];
+
+      counters.forEach((counter) => {
+        const el = document.getElementById(counter.id);
+        let count = 0;
+        const update = setInterval(() => {
+          count += Math.ceil(counter.end / 100);
+          if (count >= counter.end) {
+            el.textContent = counter.end + "+";
+            clearInterval(update);
+          } else {
+            el.textContent = count;
+          }
+        }, 30);
+      });
+    </script>
+  </body>
+</html>

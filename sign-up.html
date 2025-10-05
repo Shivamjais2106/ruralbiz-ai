@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RuralBiz AI - Sign Up</title>
+  <style>
+    /* --- Reset & Base --- */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
+                  url('./') no-repeat center center/cover;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: white;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* --- HEADER --- */
+    header {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      color: white;
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo { font-size: 22px; font-weight: 700; }
+    .logo span { color: #10b981; }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #10b981; }
+
+    .auth-buttons button {
+      background: #10b981;
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-left: 10px;
+    }
+    .auth-buttons button:hover { background: #0e9466; }
+
+    /* --- MOBILE MENU --- */
+    .mobile-menu-btn { display: none; font-size: 24px; background: none; border: none; cursor: pointer; }
+    .mobile-menu { display: none; flex-direction: column; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 20px; margin-top: 70px; }
+    .mobile-menu a, .mobile-menu button { margin-bottom: 12px; text-align: center; }
+
+    @media(max-width:768px){
+      nav { display: none; }
+      .mobile-menu-btn { display: block; }
+    }
+
+    /* --- SIGN UP FORM --- */
+    .signup-container {
+      margin: 130px auto 50px;
+      max-width: 450px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+      animation: fade-in-up 0.6s ease-out;
+      color: white;
+    }
+
+    @keyframes fade-in-up {
+      0% { opacity:0; transform:translateY(30px);}
+      100% { opacity:1; transform:translateY(0);}
+    }
+
+    h1 { text-align:center; font-size:28px; margin-bottom:10px; color:#10b981;}
+    p.subtitle { text-align:center; margin-bottom:25px; color:#ddd; }
+
+    form { display:flex; flex-direction:column; gap:20px; }
+    label { font-weight:600; margin-bottom:5px; display:block; }
+    input {
+      width:100%;
+      padding:12px 15px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.2);
+      color:white;
+      font-size:16px;
+      outline:none;
+      transition: 0.3s;
+    }
+    input::placeholder { color: rgba(255,255,255,0.7); }
+    input:focus { border-color:#10b981; box-shadow:0 0 0 3px rgba(16,185,129,0.4); }
+
+    .btn-signup {
+      background:#10b981;
+      color:white;
+      padding:12px;
+      border-radius:12px;
+      font-weight:700;
+      border:none;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    .btn-signup:hover { background:#0e9466; transform:translateY(-2px); box-shadow:0 8px 15px rgba(16,185,129,0.3); }
+
+    .alert {
+      padding:12px;
+      border-radius:12px;
+      font-size:14px;
+      display:none;
+      margin-bottom:15px;
+      text-align:center;
+    }
+    .alert-success { background: rgba(16,185,129,0.2); color:#b2f5ea; border-left:4px solid #10b981; }
+    .alert-error { background: rgba(255,76,76,0.2); color:#ffb3b3; border-left:4px solid #ff4c4c; }
+
+    .footer { text-align:center; margin-top:20px; color:#ddd; }
+    .footer a { color:#10b981; font-weight:600; }
+    .footer a:hover { text-decoration:underline; }
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">RB <span>RuralBiz AI</span></div>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="microplans.html">Microplans</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="auth-buttons">
+      <button onclick="location.href='login.html'">Login</button>
+      <button onclick="location.href='sign-up.html'">Sign Up</button>
+    </div>
+  </header>
+
+  <!-- SIGN-UP FORM -->
+  <div class="signup-container">
+    <h1>Create Account</h1>
+    <p class="subtitle">Join RB RuralBiz AI to grow your rural business.</p>
+
+    <div id="successMsg" class="alert alert-success">
+      Account created successfully! <a href="login.html">Login now</a>.
+    </div>
+    <div id="errorMsg" class="alert alert-error">
+      Please fill in all fields correctly.
+    </div>
+
+    <form id="signupForm" onsubmit="handleSignUp(event)">
+      <div>
+        <label for="fullname">Full Name <span style="color:red;">*</span></label>
+        <input type="text" id="fullname" placeholder="Your Name" required>
+      </div>
+      <div>
+        <label for="email">Email <span style="color:red;">*</span></label>
+        <input type="email" id="email" placeholder="you@example.com" required>
+      </div>
+      <div>
+        <label for="password">Password <span style="color:red;">*</span></label>
+        <input type="password" id="password" placeholder="Minimum 6 characters" required>
+      </div>
+      <div>
+        <label for="confirmPassword">Confirm Password <span style="color:red;">*</span></label>
+        <input type="password" id="confirmPassword" placeholder="Re-enter password" required>
+      </div>
+      <button type="submit" class="btn-signup">Sign Up</button>
+    </form>
+
+    <p class="footer">Already have an account? <a href="login.html">Login here</a></p>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if(mobileBtn){
+      mobileBtn.addEventListener('click',()=>{ mobileMenu.style.display = mobileMenu.style.display==='flex'?'none':'flex'; });
+    }
+
+    // Sign-up form validation
+    function handleSignUp(event){
+      event.preventDefault();
+      const fullname = document.getElementById('fullname').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const confirmPassword = document.getElementById('confirmPassword').value.trim();
+      const successMsg = document.getElementById('successMsg');
+      const errorMsg = document.getElementById('errorMsg');
+
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if(!fullname || !email || !password || !confirmPassword || !emailRegex.test(email) || password.length<6 || password!==confirmPassword){
+        errorMsg.style.display='block';
+        return;
+      }
+
+      successMsg.style.display='block';
+      document.getElementById('signupForm').reset();
+    }
+  </script>
+
+</body>
+</html>
