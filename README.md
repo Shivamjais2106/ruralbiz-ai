@@ -1,4 +1,4 @@
-# RuralBiz AI – Empowering Rural Entrepreneurs with AI
+# Rural Edge – Empowering Rural Entrepreneurs with AI
 
 ## 📑 Table of Contents
 - [Project Overview](#project-overview)
@@ -14,7 +14,7 @@
 
 ## 🌟 Project Overview
 
-RuralBiz AI is a web-based platform designed to support rural entrepreneurs and small businesses.
+Rural Edge is a web-based platform designed to support rural entrepreneurs and small businesses.
 It helps them with business guidance, resource accessibility, mentorship, and market insights using AI-powered recommendations.
 
 The goal is to bridge the gap between rural business ideas and real-world execution.
@@ -35,14 +35,20 @@ AI tools were used to assist in business idea validation and market research.
 
 ## 🛠 Tech Stack
 
-* Frontend: HTML (structure), CSS (styling, inline in HTML), JavaScript (interactivity, inline in HTML)
+* Frontend
+
+* HTML5 – Defines the structure and content of each page (index.html, features.html, roadmap.html, etc.).
+
+* CSS3 – Handles page styling, with separate CSS files for each page (stored in the css/ folder) to keep styles modular and easy to maintain.
+
+* JavaScript (ES6) – Adds interactivity and dynamic functionality, organized by page in the js/ folder for better scalability and performance.
 
 
 ---
 
 ## 🤖 AI / Tools Used
 
-* ChatGPT / OpenAI API – Used to generate business guidance, suggestions, and market insights for entrepreneurs.
+* ChatGPT / Gemini API – Used to generate business guidance, suggestions, and market insights for entrepreneurs.
 
 ---
 
@@ -58,6 +64,27 @@ RuralBiz-AI/
 │── contact.html
 │── login.html
 │── sign-up.html
+│
+├── css/
+│   ├── style.css
+│   ├── features.css
+│   ├── roadmap.css
+│   ├── microplans.css
+│   ├── about.css
+│   ├── contact.css
+│   ├── login.css
+│   └── sign-up.css
+│
+│── js/
+│   ├── home.js
+│   ├── features.js
+│   ├── roadmap.js
+│   ├── microplans.js
+│   ├── about.js
+│   ├── contact.js
+│   ├── login.js
+│   └── sign-up.js
+│
 │── /Asset
 │── README.md
 
@@ -69,7 +96,7 @@ RuralBiz-AI/
 1. Download or clone the repository.
 
    bash
-   git clone https://github.com/shivamjais2106/ruralbiz-ai.git
+   
    
 2. Open index.html in your browser.
 3. Explore the platform.
@@ -79,7 +106,7 @@ RuralBiz-AI/
 ## 🌐 Live Demo
 
 Check out the live website here:  
-[https://shivamjais2106.github.io/ruralbiz-ai/](https://shivamjais2106.github.io/ruralbiz-ai/)
+
 
 ---
 ## 📸 Screenshots
@@ -102,7 +129,7 @@ Check out the live website here:
 ## 🙌 Team / Contributors
 
 * SHIVAM JAISWAL – Developer
-* BHOOMMI KESHARWANI - Developer
+* BHOOMI KESHARWANI - Developer
 
 
 ---

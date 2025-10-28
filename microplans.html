@@ -9,510 +9,17 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <link rel="icon" href="./Asset/icon-img3.jpg" />
-
+    <link rel="stylesheet" href="./CSS/microplans.css">
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
-    <style>
-      /* Import Font */
-      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
-
-      /* Basic Reset */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Inter", sans-serif;
-        background: #f7f9fb;
-        color: #333;
-      }
-
-      a {
-        text-decoration: none;
-      }
-
-      ul {
-        list-style: none;
-      }
-
-      /* Header / Navbar */
-      header {
-        background: #fff;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        position: sticky;
-        top: 0;
-        z-index: 50;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: auto;
-        padding: 0 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 70px;
-      }
-
-      .logo {
-        font-size: 24px;
-        font-weight: 800;
-        color: #7c3aed;
-      }
-
-      .logo span {
-        color: #10b981;
-      }
-
-      nav {
-        display: flex;
-        gap: 20px;
-      }
-
-      nav a {
-        font-weight: 500;
-        color: #555;
-        padding-bottom: 2px;
-      }
-
-      nav a.active {
-        color: #10b981;
-        border-bottom: 2px solid #10b981;
-      }
-
-      nav a:hover {
-        color: #10b981;
-      }
-
-      .auth-buttons button {
-        margin-left: 10px;
-        padding: 8px 16px;
-        border-radius: 999px;
-        border: none;
-        cursor: pointer;
-        transition: 0.3s;
-      }
-
-      .login-btn {
-        background: none;
-        color: #555;
-        font-weight: 600;
-      }
-
-      .login-btn:hover {
-        color: #7c3aed;
-      }
-
-      .signup-btn {
-        background: #10b981;
-        color: #fff;
-        font-weight: 700;
-        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-      }
-
-      .signup-btn:hover {
-        background: #0e9e6f;
-      }
-
-      /* Mobile Menu */
-      .mobile-menu-btn {
-        display: none;
-        background: none;
-        border: none;
-        cursor: pointer;
-      }
-
-      .mobile-menu {
-        display: none;
-        flex-direction: column;
-        padding: 10px 0;
-        background: #fff;
-        border-top: 1px solid #eee;
-      }
-
-      .mobile-menu a {
-        padding: 10px 20px;
-        color: #555;
-      }
-
-      .mobile-menu a.active {
-        color: #10b981;
-        font-weight: 600;
-      }
-
-      /* Main Sections */
-      section {
-        padding: 40px 20px;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      /* Dashboard Header */
-      .dashboard-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-      }
-
-      .dashboard-header h1 {
-        font-size: 32px;
-        font-weight: 800;
-      }
-
-      .dashboard-header p {
-        color: #555;
-        margin-top: 5px;
-      }
-
-      .dashboard-header button {
-        display: flex;
-        align-items: center;
-        background: #007bff;
-        color: #fff;
-        border: none;
-        padding: 10px 16px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: 0.3s;
-      }
-
-      .dashboard-header button:hover {
-        background: #0056b3;
-      }
-
-      .dashboard-header svg {
-        margin-right: 5px;
-      }
-
-      /* Grid Layout */
-      .grid {
-        display: grid;
-        gap: 20px;
-      }
-
-      .grid-cols-3 {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .grid-cols-2 {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .col-span-2 {
-        grid-column: span 2;
-      }
-
-      .col-span-1 {
-        grid-column: span 1;
-      }
-
-      /* Cards */
-      .dashboard-card {
-        background: #fff;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-      }
-
-      .dashboard-card:hover {
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-      }
-
-      .border-primary-blue {
-        border-bottom: 4px solid #007bff;
-      }
-
-      .border-secondary-green {
-        border-bottom: 4px solid #28a745;
-      }
-
-      .border-yellow {
-        border-bottom: 4px solid #f59e0b;
-      }
-
-      .border-red {
-        border-top: 4px solid #dc2626;
-      }
-
-      /* Card Text */
-      .text-gray-500 {
-        color: #6b7280;
-      }
-
-      .text-gray-900 {
-        color: #111827;
-      }
-
-      .text-lg {
-        font-size: 16px;
-      }
-
-      .text-xl {
-        font-size: 20px;
-      }
-
-      .text-2xl {
-        font-size: 24px;
-      }
-
-      .text-3xl {
-        font-size: 28px;
-      }
-
-      /* Button */
-      .btn {
-        cursor: pointer;
-        border-radius: 8px;
-        border: none;
-        padding: 8px 16px;
-        font-weight: 600;
-        transition: 0.3s;
-      }
-
-      .btn-blue {
-        background: #007bff;
-        color: #fff;
-      }
-
-      .btn-blue:hover {
-        background: #0056b3;
-      }
-
-      .btn-green {
-        background: #28a745;
-        color: #fff;
-      }
-
-      .btn-green:hover {
-        background: #1e7e34;
-      }
-
-      .btn-yellow {
-        background: #f59e0b;
-        color: #fff;
-      }
-
-      .btn-yellow:hover {
-        background: #d97706;
-      }
-
-      /* Timeline */
-      .timeline {
-        position: relative;
-        border-left: 4px solid #007bff;
-        padding-left: 30px;
-        margin-top: 20px;
-      }
-
-      .timeline-item {
-        position: relative;
-        margin-bottom: 40px;
-      }
-
-      .timeline-item span {
-        position: absolute;
-        left: -24px;
-        top: 0;
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: bold;
-      }
-      .timeline-item:nth-child(1) span {
-        background: #007bff;
-      }
-
-      .timeline-item:nth-child(2) span {
-        background: #28a745;
-      }
-
-      .timeline-item:nth-child(3) span {
-        background: #f59e0b;
-      }
-
-      .timeline-item h3 {
-        font-size: 20px;
-        font-weight: bold;
-      }
-
-      .timeline-item p {
-        color: #555;
-        margin-top: 5px;
-      }
-      .s {
-        margin-left: 30px;
-      }
-
-      .timeline-item button {
-        margin-top: 5px;
-        background: none;
-        border: none;
-        color: #007bff;
-        font-weight: 600;
-        cursor: pointer;
-      }
-
-      /* Team Productivity */
-      .team-grid {
-        display: grid;
-        gap: 20px;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        text-align: center;
-      }
-
-      .productivity-score {
-        font-size: 28px;
-        font-weight: 800;
-        margin-top: 10px;
-      }
-
-      .text-primary-blue {
-        color: #007bff;
-      }
-
-      .text-secondary-green {
-        color: #28a745;
-      }
-
-      .text-yellow {
-        color: #f59e0b;
-      }
-
-      .text-red {
-        color: #dc2626;
-      }
-
-      /* Feedback / Message Box */
-      #messageBox {
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #333;
-        color: #fff;
-        padding: 10px 20px;
-        border-radius: 12px;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s;
-      }
-
-      /* ✅ Footer */
-      footer {
-        background: #000000;
-        color: white;
-        padding: 4rem 5% 2rem;
-      }
-      .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
-        gap: 2rem;
-        height: 30vh;
-        max-width: 1200px; /* ✅ same as navbar */
-        margin: 0 auto; /* ✅ center align */
-        padding: 0 20px; /* ✅ same padding as navbar */
-      }
-
-      .footer-column h3 {
-        font-size: 1.2rem;
-        margin-bottom: 1.5rem;
-        position: relative;
-        padding-bottom: 0.5rem;
-      }
-
-      .footer-column h3::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 50px;
-        height: 2px;
-        background: var(--accent);
-      }
-
-      .footer-column ul {
-        list-style: none;
-      }
-
-      .footer-column ul li {
-        margin-bottom: 0.8rem;
-      }
-
-      .footer-column ul li a {
-        text-decoration: none;
-        color: #fff;
-        transition: color 0.3s;
-        font-size: 0.9rem;
-        opacity: 0.6;
-      }
-
-      .footer-column ul li a:hover {
-        color: var(--accent);
-        opacity: 1;
-      }
-
-      .social-links {
-        display: flex;
-        gap: 1rem;
-        margin-top: 1rem;
-      }
-
-      .social-links a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        color: white;
-        transition: all 0.3s;
-      }
-
-      .social-links a:hover {
-        background: var(--accent);
-        transform: translateY(-3px);
-      }
-
-      .copyright {
-        text-align: center;
-        padding-top: 2rem;
-        margin-top: 2rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        color: #aaa;
-        font-size: 0.9rem;
-      }
-
-      /* Responsive */
-      @media (max-width: 1024px) {
-        .grid-cols-3 {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .dashboard-header {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 15px;
-        }
-      }
-    </style>
   </head>
-
   <body>
     <!-- Navbar -->
-    <header>
+<header>
       <div class="container">
         <div class="logo">RB <span>RuralBiz AI</span></div>
+
+        <!-- Desktop Navigation -->
         <nav class="desktop-nav">
           <a href="index.html">Home</a>
           <a href="features.html">Features</a>
@@ -521,6 +28,7 @@
           <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
         </nav>
+
         <div class="auth-buttons">
           <button class="login-btn" onclick="window.location.href='login.html'">
             Login
@@ -532,19 +40,35 @@
             Sign Up
           </button>
         </div>
-        <button class="mobile-menu-btn" id="mobile-menu-button">☰</button>
+
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobile-menu-button">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
+
+      <!-- Mobile Menu -->
       <div class="mobile-menu" id="mobile-menu">
-        <a href="#">Home</a>
-        <a href="#">Features</a>
-        <a href="#">Roadmap</a>
-        <a href="#">Microplans</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <button class="login-btn">Login</button>
-        <button class="signup-btn">Sign Up</button>
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="microplans.html">Microplans</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <div class="mobile-auth">
+          <button onclick="window.location.href='login.html'" class="login-btn">
+            Login
+          </button>
+          <button
+            onclick="window.location.href='sign-up.html'"
+            class="signup-btn"
+          >
+            Sign Up
+          </button>
+        </div>
       </div>
     </header>
+
 
     <!-- Dashboard Header -->
     <section class="dashboard-header">
@@ -818,105 +342,6 @@
 
     <!-- Message Box -->
     <div id="messageBox"></div>
-
-    <script>
-      // Mobile menu toggle
-      const mobileBtn = document.getElementById("mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-      mobileBtn.addEventListener("click", () => {
-        if (mobileMenu.style.display === "flex") {
-          mobileMenu.style.display = "none";
-        } else {
-          mobileMenu.style.display = "flex";
-        }
-      });
-      // Message Functions
-      function showMessage(text) {
-        const box = document.getElementById("messageBox");
-        box.innerText = text;
-        box.style.opacity = "1";
-        box.style.pointerEvents = "auto";
-        setTimeout(() => {
-          box.style.opacity = "0";
-          box.style.pointerEvents = "none";
-        }, 3000);
-      }
-      function viewPlanDetails(plan) {
-        showMessage(`Loading detailed report for: "${plan}"`);
-      }
-      function generateNewPlan() {
-        showMessage("AI is generating a new Microplan...");
-      }
-
-      // Refresh Productivity
-      function refreshProductivity() {
-        const scores = document.querySelectorAll(".productivity-score");
-        scores.forEach((score) => {
-          let newScore = Math.floor(Math.random() * (95 - 60 + 1)) + 60;
-          score.innerText = newScore + "%";
-          score.classList.remove(
-            "text-primary-blue",
-            "text-secondary-green",
-            "text-yellow",
-            "text-red"
-          );
-          if (newScore > 85) {
-            score.classList.add("text-secondary-green");
-          } else if (newScore > 75) {
-            score.classList.add("text-primary-blue");
-          } else if (newScore > 70) {
-            score.classList.add("text-yellow");
-          } else {
-            score.classList.add("text-red");
-          }
-        });
-        showMessage("AI refreshed productivity insights.");
-      }
-
-      // Charts
-      window.onload = function () {
-        new Chart(document.getElementById("taskProgressChart"), {
-          type: "doughnut",
-          data: {
-            labels: ["Completed", "Remaining"],
-            datasets: [
-              {
-                data: [21, 14],
-                backgroundColor: ["#28a745", "#007bff"],
-                hoverOffset: 4,
-              },
-            ],
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: { legend: { position: "bottom" } },
-          },
-        });
-        new Chart(document.getElementById("leadsTrendChart"), {
-          type: "line",
-          data: {
-            labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
-            datasets: [
-              {
-                label: "Leads",
-                data: [35, 42, 49, 57],
-                fill: true,
-                borderColor: "#007bff",
-                backgroundColor: "rgba(0,123,255,0.1)",
-                tension: 0.3,
-                pointBackgroundColor: "#007bff",
-              },
-            ],
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
-            scales: { y: { beginAtZero: true } },
-          },
-        });
-      };
-    </script>
+    <script src="./JS/microplans.js"></script>
   </body>
 </html>

@@ -13,508 +13,15 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <link rel="icon" href="./Asset/icon-img3.jpg" />
-
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Inter", sans-serif;
-        background: #f4f7fc;
-        color: #333;
-      }
-
-      a {
-        text-decoration: none;
-      }
-
-      ul {
-        list-style: none;
-      }
-
-      /* Navbar */
-      header {
-        background: #fff;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        position: sticky;
-        top: 0;
-        z-index: 50;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: auto;
-        padding: 0 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 70px;
-      }
-
-      .logo {
-        font-size: 26px;
-        font-weight: 800;
-        color: #7c3aed;
-      }
-
-      .logo span {
-        color: #10b981;
-      }
-
-      nav {
-        display: flex;
-        gap: 20px;
-      }
-
-      nav a {
-        font-weight: 500;
-        color: #555;
-        padding-bottom: 2px;
-      }
-
-      nav a.active {
-        color: #10b981;
-        border-bottom: 2px solid #10b981;
-      }
-
-      nav a:hover {
-        color: #7c3aed;
-      }
-
-      .auth-buttons button {
-        margin-left: 10px;
-        padding: 8px 20px;
-        border-radius: 999px;
-        border: none;
-        cursor: pointer;
-        transition: 0.3s;
-      }
-
-      .login-btn {
-        background: none;
-        color: #555;
-        font-weight: 600;
-      }
-
-      .login-btn:hover {
-        color: #7c3aed;
-      }
-
-      .signup-btn {
-        background: linear-gradient(135deg, #10b981, #34d399);
-        color: #fff;
-        font-weight: 700;
-        box-shadow: 0 6px 18px rgba(16, 185, 129, 0.3);
-      }
-
-      .signup-btn:hover {
-        background: linear-gradient(135deg, #0e9e6f, #22c55e);
-      }
-
-      .mobile-menu-btn {
-        display: none;
-        background: none;
-        border: none;
-        font-size: 24px;
-        cursor: pointer;
-      }
-
-      .mobile-menu {
-        display: none;
-        flex-direction: column;
-        padding: 10px 0;
-        background: #fff;
-        border-top: 1px solid #eee;
-      }
-
-      .mobile-menu a {
-        padding: 10px 20px;
-        color: #555;
-      }
-
-      .mobile-menu a.active {
-        color: #10b981;
-        font-weight: 600;
-      }
-
-      /* --- Hero Section --- */
-      .hero {
-        background: var(--light-bg);
-        padding: 80px 0;
-      }
-
-      .hero .container {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 40px;
-      }
-
-      .hero-content {
-        flex: 1;
-        min-width: 280px;
-      }
-
-      .hero-image {
-        flex: 1;
-        min-height: 200px;
-        background: #ccc;
-        border-radius: 10px;
-      }
-
-      .img{
-        height: 320px;
-        width: 560px;
-        top: 0;
-        border-radius: 10px;
-      }
-      #dynamic-text {
-        line-height: 20px;
-        font-weight: bold;
-        color: var(--primary-color);
-        border-right: 2px solid var(--primary-color);
-        padding-right: 3px;
-      }
-
-      .trust-text {
-        line-height: 40px;
-        margin-top: 15px;
-        font-style: italic;
-        color: #777;
-      }
-
-      /* --- Animations --- */
-      @keyframes bounce {
-        0% {
-          transform: translateY(0);
-        }
-
-        30% {
-          transform: translateY(-10px);
-        }
-
-        50% {
-          transform: translateY(0);
-        }
-
-        70% {
-          transform: translateY(-5px);
-        }
-
-        100% {
-          transform: translateY(0);
-        }
-      }
-      /* Hero Section */
-      section {
-        /* margin-top: 100px; */
-        padding: 80px 20px;
-        max-width: 1200px;
-        margin: auto;
-      }
-
-      .second{
-        margin-top: 150px;
-      }
-      .text-center {
-        text-align: center;
-      }
-
-      .subtitle {
-        color: #10b981;
-        font-weight: 600;
-        font-size: 14px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-      }
-
-      h2 {
-        font-size: 38px;
-        font-weight: 800;
-        margin: 20px 0;
-      }
-
-      h2 span {
-        color: #7c3aed;
-      }
-
-      p.lead {
-        font-size: 18px;
-        color: #555;
-        max-width: 700px;
-        margin: 10px auto;
-      }
-
-      /* Feature Grid */
-      .grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 25px;
-        margin-top: 50px;
-      }
-
-      @media (min-width: 768px) {
-        .grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      @media (min-width: 1024px) {
-        .grid {
-          grid-template-columns: repeat(3, 1fr);
-        }
-      }
-
-      .feature-card {
-        background: #fff;
-        padding: 25px;
-        border-radius: 16px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        border: 1px solid #eee;
-        transition: 0.3s;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .feature-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-      }
-
-      .feature-icon {
-        width: 80px;
-        height: 80px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 32px;
-        border-radius: 50%;
-        margin-bottom: 20px;
-        transition: 0.3s;
-      }
-
-      .feature-card:hover .feature-icon {
-        transform: scale(1.2);
-      }
-
-      .green {
-        background: rgba(16, 185, 129, 0.1);
-        color: #10b981;
-      }
-
-      .violet {
-        background: rgba(124, 58, 237, 0.1);
-        color: #7c3aed;
-      }
-
-      .feature-card h3 {
-        font-size: 20px;
-        font-weight: 700;
-        margin-bottom: 12px;
-      }
-
-      .feature-card p {
-        font-size: 15px;
-        color: #555;
-        line-height: 1.6;
-      }
-
-      .feature-card img {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 12px;
-        margin-bottom: 15px;
-      }
-
-      /* Mapping Section */
-      .mapping-section {
-        margin-top: 80px;
-        border-top: 1px solid #ddd;
-        padding-top: 60px;
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-      }
-
-      @media (min-width: 1024px) {
-        .mapping-section {
-          flex-direction: row;
-          gap: 40px;
-        }
-      }
-
-      .mapping-text {
-        flex: 1;
-      }
-
-      .mapping-text h3 {
-        font-size: 28px;
-        font-weight: 800;
-        margin: 10px 0;
-      }
-
-      .mapping-text ul {
-        margin-top: 20px;
-      }
-
-      .mapping-text li {
-        display: flex;
-        align-items: flex-start;
-        margin-bottom: 12px;
-        font-weight: 500;
-        color: #555;
-      }
-
-      .mapping-text li::before {
-        content: "✔";
-        color: #10b981;
-        margin-right: 10px;
-        margin-top: 2px;
-      }
-
-      .mapping-graph {
-        flex: 1;
-        height: 400px; /* fixed height for map */
-      }
-
-      /* CTA */
-      .cta {
-        background: linear-gradient(135deg, #7c3aed, #c084fc);
-        color: #fff;
-        text-align: center;
-        padding: 80px 20px;
-        border-radius: 16px;
-        margin-top: 60px;
-      }
-
-      .cta h3 {
-        font-size: 36px;
-        font-weight: 800;
-        margin-bottom: 20px;
-      }
-
-      .cta p {
-        font-size: 18px;
-        margin-bottom: 25px;
-        color: #d1c4ff;
-      }
-
-      .cta a {
-        display: inline-block;
-        background: #fff;
-        color: #7c3aed;
-        padding: 16px 45px;
-        border-radius: 999px;
-        font-weight: 700;
-        box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
-        transition: 0.3s;
-      }
-
-      .cta a:hover {
-        background: #f0f0f0;
-      }
-      /* ✅ Footer */
-      footer {
-        margin-top: 40px;
-        background: #000000;
-        color: white;
-        padding: 4rem 5% 2rem;
-      }
-      .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
-        gap: 2rem;
-        height: 30vh;
-        max-width: 1200px; /* ✅ same as navbar */
-        margin: 0 auto; /* ✅ center align */
-        padding: 0 20px; /* ✅ same padding as navbar */
-      }
-
-      .footer-column h3 {
-        font-size: 1.2rem;
-        margin-bottom: 1.5rem;
-        position: relative;
-        padding-bottom: 0.5rem;
-      }
-
-      .footer-column h3::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 50px;
-        height: 2px;
-        background: var(--accent);
-      }
-
-      .footer-column ul {
-        list-style: none;
-      }
-
-      .footer-column ul li {
-        margin-bottom: 0.8rem;
-      }
-
-      .footer-column ul li a {
-        text-decoration: none;
-        color: #fff;
-        transition: color 0.3s;
-        font-size: 0.9rem;
-        opacity: 0.6;
-      }
-
-      .footer-column ul li a:hover {
-        color: var(--accent);
-        opacity: 1;
-      }
-
-      .social-links {
-        display: flex;
-        gap: 1rem;
-        margin-top: 1rem;
-      }
-
-      .social-links a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        color: white;
-        transition: all 0.3s;
-      }
-
-      .social-links a:hover {
-        background: var(--accent);
-        transform: translateY(-3px);
-      }
-
-      .copyright {
-        text-align: center;
-        padding-top: 2rem;
-        margin-top: 2rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        color: #aaa;
-        font-size: 0.9rem;
-      }
-    </style>
-  </head>
-
+    <link rel="stylesheet" href="./CSS/features.css">
+    </head>
   <body>
     <!-- Navbar -->
     <header>
       <div class="container">
         <div class="logo">RB <span>RuralBiz AI</span></div>
+
+        <!-- Desktop Navigation -->
         <nav class="desktop-nav">
           <a href="index.html">Home</a>
           <a href="features.html" class="active">Features</a>
@@ -535,17 +42,32 @@
             Sign Up
           </button>
         </div>
-        <button class="mobile-menu-btn" id="mobile-menu-button">☰</button>
+
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobile-menu-button">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
+
+      <!-- Mobile Menu -->
       <div class="mobile-menu" id="mobile-menu">
-        <a href="#">Home</a>
-        <a href="#">Features</a>
-        <a href="#">Roadmap</a>
-        <a href="#">Microplans</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <button class="login-btn">Login</button>
-        <button class="signup-btn">Sign Up</button>
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="microplans.html">Microplans</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <div class="mobile-auth">
+          <button onclick="window.location.href='login.html'" class="login-btn">
+            Login
+          </button>
+          <button
+            onclick="window.location.href='sign-up.html'"
+            class="signup-btn"
+          >
+            Sign Up
+          </button>
+        </div>
       </div>
     </header>
 
@@ -570,7 +92,7 @@
             </p>
           </div>
           <div class="hero-image">
-            <img src="./Asset/feature-img1.jpg" class="img">
+            <img src="./Asset/feature-img1.jpg" class="img" />
           </div>
         </div>
       </section>
@@ -652,6 +174,7 @@
       <!-- Mapping Section -->
       <div class="mapping-section">
         <div class="mapping-text">
+          <br />
           <div class="subtitle">VISUAL INSIGHTS & MAPPING</div>
           <h3>Hyper-Local Market <span>Mapping</span></h3>
           <p>
@@ -659,6 +182,10 @@
             logistics bottlenecks in your area.
           </p>
           <ul>
+            <li>
+              Profit Hotspots: Identify neighborhoods or regions with the
+              highest revenue potential.
+            </li>
             <li>Demand Index: Real-time consumer needs.</li>
             <li>
               Resource Availability: Match business to local raw materials.
@@ -667,9 +194,34 @@
               Risk Assessment: Predict challenges like climate or price
               volatility.
             </li>
+            <li>
+              Growth Opportunities: Highlight emerging areas with untapped
+              potential for expansion.
+            </li>
           </ul>
         </div>
-        <div class="mapping-graph" id="map"></div>
+
+        <div
+          style="
+            width: 100%;
+            max-width: 900px;
+            margin: auto;
+            border: 2px solid #2e7d32;
+            border-radius: 12px;
+            overflow: hidden;
+          "
+        >
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d229683.91381562763!2d84.9840316265029!3d23.344099716688684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e1b2c6d3c4fb%3A0x17a9b2a2c1a97e2b!2sJharkhand!5e0!3m2!1sen!2sin!4v1694529181234!5m2!1sen!2sin"
+            width="100%"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
+        </div>
       </div>
     </section>
 
@@ -735,79 +287,6 @@
       </div>
     </footer>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script>
-      // Mobile menu toggle
-      const mobileBtn = document.getElementById("mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-      mobileBtn.addEventListener("click", () => {
-        mobileMenu.style.display =
-          mobileMenu.style.display === "flex" ? "none" : "flex";
-      });
-      // --- Dynamic Typing ---
-      const dynamicText = document.getElementById("dynamic-text");
-      const words = [
-        "Market Insights",
-        "Funding Guidance",
-        "Growth Strategies",
-        "AI Guidance",
-      ];
-      let wordIndex = 0,
-        charIndex = 0,
-        isDeleting = false;
-
-      function type() {
-        const current = words[wordIndex];
-        if (isDeleting) {
-          dynamicText.textContent = current.substring(0, charIndex - 1);
-          charIndex--;
-        } else {
-          dynamicText.textContent = current.substring(0, charIndex + 1);
-          charIndex++;
-        }
-
-        if (!isDeleting && charIndex === current.length) {
-          isDeleting = true;
-          setTimeout(type, 1500); // Pause at end of word
-        } else if (isDeleting && charIndex === 0) {
-          isDeleting = false;
-          wordIndex = (wordIndex + 1) % words.length;
-          setTimeout(type, 150); // Short pause before next word
-        } else {
-          setTimeout(type, isDeleting ? 100 : 150);
-        }
-      }
-
-      document.addEventListener("DOMContentLoaded", type);
-
-      // Alternate colors for cards
-      const cards = document.querySelectorAll(".feature-card");
-      cards.forEach((card, i) => {
-        const icon = card.querySelector(".feature-icon");
-        if (i % 2 === 0) {
-          icon.classList.add("green");
-        } else {
-          icon.classList.add("violet");
-        }
-      });
-
-      // Leaflet Map
-      const map = L.map("map").setView([23.2599, 77.4126], 6); // India center
-      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      }).addTo(map);
-
-      // Example markers for rural opportunities
-      const opportunities = [
-        { coords: [28.7041, 77.1025], title: "Local E-commerce Hub" },
-        { coords: [19.076, 72.8777], title: "Food Processing Unit" },
-        { coords: [12.9716, 77.5946], title: "Eco-Friendly Handicraft" },
-      ];
-
-      opportunities.forEach((op) => {
-        L.marker(op.coords).addTo(map).bindPopup(op.title);
-      });
-    </script>
+   <script src="./JS/features.js"></script>
   </body>
 </html>

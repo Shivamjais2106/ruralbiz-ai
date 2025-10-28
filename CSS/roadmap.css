@@ -1,0 +1,461 @@
+      /* Import Font */
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+
+      /* Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: #f4f7fc;
+        color: #333;
+      }
+      a {
+        text-decoration: none;
+      }
+      ul {
+        list-style: none;
+      }
+
+      /* Navbar */
+      header {
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+      }
+      .logo {
+        font-size: 26px;
+        font-weight: 800;
+        color: #7c3aed;
+      }
+      .logo span {
+        color: #10b981;
+      }
+      nav {
+        display: flex;
+        gap: 20px;
+      }
+      nav a {
+        font-weight: 500;
+        color: #555;
+        padding-bottom: 2px;
+        transition: 0.3s;
+      }
+      nav a.active {
+        color: #10b981;
+        border-bottom: 2px solid #10b981;
+      }
+      nav a:hover {
+        color: #7c3aed;
+      }
+      .auth-buttons button {
+        margin-left: 10px;
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .login-btn {
+        background: none;
+        color: #555;
+        font-weight: 600;
+      }
+      .login-btn:hover {
+        color: #7c3aed;
+      }
+      .signup-btn {
+        background: linear-gradient(135deg, #10b981, #34d399);
+        color: #fff;
+        font-weight: 700;
+        box-shadow: 0 6px 18px rgba(16, 185, 129, 0.3);
+      }
+      .signup-btn:hover {
+        background: linear-gradient(135deg, #0e9e6f, #22c55e);
+      }
+      /* --- Mobile Menu --- */
+      .mobile-menu-btn {
+        display: none; /* ✅ Hidden by default */
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        color: #333;
+        cursor: pointer;
+      }
+      .mobile-menu {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        border-top: 1px solid #eee;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        animation: slideDown 0.3s ease forwards;
+      }
+
+      .mobile-menu a {
+        padding: 15px 25px;
+        color: #555;
+        text-align: left;
+        font-weight: 500;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .mobile-menu a:hover {
+        background: #f9f9f9;
+        color: var(--accent);
+      }
+
+      /* --- Mobile Auth Buttons --- */
+      .mobile-auth {
+        display: flex;
+        flex-direction: column;
+        padding: 15px 25px;
+        gap: 10px;
+      }
+
+      .mobile-auth .login-btn,
+      .mobile-auth .signup-btn {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+      }
+
+      /* --- Responsive Rules --- */
+      @media (max-width: 768px) {
+        nav.desktop-nav,
+        .auth-buttons {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+      }
+
+      /* --- Animation --- */
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      /* Hero with Background Image */
+      .hero {
+        height: 55vh;
+        position: relative;
+        text-align: center;
+        padding: 120px 20px 80px;
+        background: url("../Asset/roadmap-img1.jpg") no-repeat center
+          center/cover;
+        border-radius: 16px;
+        margin: 20px;
+        color: #fff;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* overlay for readability */
+        border-radius: 16px;
+        z-index: 0;
+      }
+      .hero h1,
+      .hero p {
+        position: relative;
+        z-index: 1;
+      }
+      .hero h1 {
+        font-size: 48px;
+        font-weight: 800;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+      .hero h1 span {
+        color: #10b981;
+      }
+      .hero p {
+        font-size: 20px;
+        max-width: 700px;
+        margin: auto;
+        line-height: 1.6;
+      }
+
+      /* Roadmap */
+      .roadmap {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        position: relative;
+      }
+      .roadmap .phase {
+        background: #fff;
+        border-radius: 16px;
+        padding: 25px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        border-left: 8px solid transparent;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .roadmap .phase:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      }
+      .phase-icon-container {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      .phase-icon-container.completed {
+        background: linear-gradient(135deg, #34d399, #10b981);
+        color: #fff;
+      }
+      .phase-icon-container.current {
+        background: linear-gradient(135deg, #3b82f6, #60a5fa);
+        color: #fff;
+      }
+      .phase-icon-container.future {
+        background: linear-gradient(135deg, #f87171, #fb7185);
+        color: #fff;
+      }
+      .phase span.status {
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 12px;
+        color: #fff;
+        margin-bottom: 10px;
+        display: inline-block;
+      }
+      .status.completed {
+        background: #10b981;
+      }
+      .status.current {
+        background: #3b82f6;
+      }
+      .status.future {
+        background: #f87171;
+      }
+      .phase h3 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .phase ul {
+        list-style: disc inside;
+        color: #555;
+        font-size: 15px;
+      }
+
+      /* Cards */
+      .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 40px 20px;
+      }
+      .card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 300px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      }
+      .card img {
+        width: 100%;
+        border-radius: 12px;
+        margin-bottom: 10px;
+      }
+      .card h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .card p {
+        font-size: 14px;
+        color: #555;
+      }
+      .card button {
+        margin-top: 10px;
+        padding: 8px 12px;
+        border-radius: 12px;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+        background: linear-gradient(135deg, #3b82f6, #60a5fa);
+        transition: 0.3s;
+      }
+      .card button:hover {
+        background: linear-gradient(135deg, #2563eb, #3b82f6);
+      }
+
+      /* Feedback */
+      .feedback {
+        text-align: center;
+        padding: 40px 20px;
+        background: #f0f4f8;
+        border-radius: 16px;
+        margin: 20px;
+      }
+      .feedback h2 {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .feedback p {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 20px;
+      }
+      .feedback button {
+        padding: 12px 24px;
+        border-radius: 12px;
+        border: none;
+        background: #10b981;
+        color: #fff;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .feedback button:hover {
+        background: #0e9e6f;
+      }
+
+      /* ✅ Footer */
+      footer {
+        background: #000000;
+        color: white;
+        padding: 4rem 5% 2rem;
+      }
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+        gap: 2rem;
+        height: 30vh;
+        max-width: 1200px; /* ✅ same as navbar */
+        margin: 0 auto; /* ✅ center align */
+        padding: 0 20px; /* ✅ same padding as navbar */
+      }
+
+      .footer-column h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+
+      .footer-column h3::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 2px;
+        background: var(--accent);
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-column ul li a {
+        text-decoration: none;
+        color: #fff;
+        transition: color 0.3s;
+        font-size: 0.9rem;
+        opacity: 0.6;
+      }
+
+      .footer-column ul li a:hover {
+        color: var(--accent);
+        opacity: 1;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        transition: all 0.3s;
+      }
+
+      .social-links a:hover {
+        background: var(--accent);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #aaa;
+        font-size: 0.9rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        nav.desktop-nav {
+          display: none;
+        }
+        .mobile-menu-btn {
+          display: block;
+        }
+        .cards {
+          flex-direction: column;
+          align-items: center;
+        }
+        .hero h1 {
+          font-size: 36px;
+        }
+        .hero p {
+          font-size: 16px;
+        }
+      }
